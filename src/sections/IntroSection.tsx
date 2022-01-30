@@ -22,11 +22,11 @@ const IntroSection = () => {
     >
       {/* Stack to hold intro section details */}
       <Stack sx={{ alignItems: 'center', zIndex: 1 }}>
-        {/* Heading */}
         <Typography
           sx={(theme) => ({
             textAlign: 'center',
             ...theme.typography.h2,
+            marginTop: '0.5rem',
             transition: 'all 0.2s',
             cursor: 'default',
             '&:hover': {

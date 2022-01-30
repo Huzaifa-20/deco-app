@@ -1,6 +1,6 @@
 import Particles from 'react-tsparticles';
-import NavBar from './components/NavBar';
-import particleOptions from './helper';
+import NavBar from './components/NavBar/NavBar';
+import particleOptions from './particleOptions';
 import AboutSection from './sections/AboutSection';
 import IntroSection from './sections/IntroSection';
 

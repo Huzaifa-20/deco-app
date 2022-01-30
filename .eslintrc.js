@@ -24,5 +24,11 @@ module.exports = {
     'react/jsx-curly-newline': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-nested-ternary': 'off',
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+      },
+    ],
   },
 };
