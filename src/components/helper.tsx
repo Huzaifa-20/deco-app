@@ -60,3 +60,53 @@ export const navBarHeadings = [
   'Testimonials',
   'Contact',
 ];
+
+export interface ServiceType {
+  detail: string;
+  skillSet: string;
+  tools: string[];
+}
+
+export const services: ServiceType[] = [
+  {
+    detail:
+      'I value simple content structure, clean design patterns, and thoughtful interactions.',
+    skillSet: 'UX, UI, Web, Mobile, Apps, Logos',
+    tools: ['Figma', 'Adobe Photoshop', 'Pen & Paper', 'Webflow'],
+  },
+  {
+    detail:
+      'I like to code things from scratch, and enjoy bringing ideas to life in the browser.',
+    skillSet: 'HTML, Pug, Slim, CSS, Sass, Less',
+    tools: ['Atom', 'Bitbucket', 'Bootstrap', 'Bulma'],
+  },
+];
+
+export interface WorkType {
+  heading: string;
+  detail: string;
+}
+
+export const workFlow: WorkType[] = [
+  // {
+  //   heading: 'Discover',
+  //   detail: 'I conduct user research to identify the problem I want to solve.',
+  // },
+  {
+    heading: 'Define',
+    detail: 'I brainstorm possible design solutions to the identified problem.',
+  },
+  {
+    heading: 'Ideate',
+    detail:
+      'I create wireframes and sketches of the product I’m about to design.',
+  },
+  {
+    heading: 'Prototype',
+    detail: 'I create high fidelity design and prototype the screens.',
+  },
+  {
+    heading: 'Implement',
+    detail: 'After designing, I deliver for implementation.',
+  },
+];

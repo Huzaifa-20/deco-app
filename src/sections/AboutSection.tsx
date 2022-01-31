@@ -1,24 +1,19 @@
 import {
-  Box,
-  Stack,
-  Grid,
-  Typography,
-  Card,
-  useTheme,
-  CardMedia,
+  Box, Grid, Typography, useTheme,
 } from '@mui/material';
 import yumna from '../resources/yumna.jpg';
 import huzaifa from '../resources/huzaifa.jpg';
-import { logoPrimaryColor } from '../style/theme';
+import SectionHeading from '../components/SectionHeading';
+import ImageCard from '../components/ImageCard';
 
 const AboutSection = () => {
   const { breakpoints } = useTheme();
+
   return (
     // About section container //
     <Box
       sx={{
         height: '100vh',
-        width: '100wv',
         borderWidth: '1rem',
         borderColor: 'text.secondary',
         backgroundColor: 'primary.main',
@@ -29,36 +24,14 @@ const AboutSection = () => {
       }}
     >
       {/* About heading */}
-      <Stack sx={{ marginTop: '1rem' }}>
-        <Typography
-          sx={(theme) => ({
-            textAlign: 'center',
-            ...theme.typography.h4,
-            color: 'text.primary',
-            transition: 'all 0.2s',
-            cursor: 'default',
-            [breakpoints.up('sm')]: {
-              ...theme.typography.h3,
-            },
-          })}
-        >
-          About
-        </Typography>
-        <Box
-          sx={{
-            width: '5rem',
-            height: '3px',
-            backgroundColor: logoPrimaryColor,
-          }}
-        />
-      </Stack>
+      <SectionHeading heading="About" />
 
       {/* Responsive grid to hold image cards and text */}
       <Grid
         container
         alignItems="center"
         rowSpacing={2}
-        columnSpacing={{ xs: 2, sm: 2, md: 3 }}
+        columnSpacing={{ xs: 2, sm: 2, md: 1 }}
         sx={{
           paddingLeft: '1rem',
           paddingRight: '1rem',
@@ -76,23 +49,7 @@ const AboutSection = () => {
             justifyContent: 'center',
           }}
         >
-          <Card
-            sx={{
-              maxWidth: '280px',
-              borderRadius: '10px',
-              [breakpoints.up('md')]: {
-                maxWidth: '345px',
-              },
-            }}
-          >
-            <CardMedia
-              component="img"
-              alt="green iguana"
-              height="140"
-              image={yumna}
-              sx={{ backgroundColor: '#000000' }}
-            />
-          </Card>
+          <ImageCard path={yumna} />
         </Grid>
 
         <Grid
@@ -107,14 +64,18 @@ const AboutSection = () => {
           }}
         >
           <Typography
+            data-aos="zoom-out"
+            data-aos-delay="800"
             sx={(theme) => ({
               textAlign: 'justify',
               ...theme.typography.body2,
+              fontFamily: 'Roboto',
               color: 'text.primary',
               transition: 'all 0.2s',
               cursor: 'default',
               [breakpoints.up('md')]: {
                 ...theme.typography.body1,
+                fontFamily: 'Roboto',
               },
             })}
           >
@@ -139,22 +100,7 @@ const AboutSection = () => {
             justifyContent: 'center',
           }}
         >
-          <Card
-            sx={{
-              maxWidth: '280px',
-              borderRadius: '10px',
-              [breakpoints.up('md')]: {
-                maxWidth: '345px',
-              },
-            }}
-          >
-            <CardMedia
-              component="img"
-              alt="green iguana"
-              height="140"
-              image={huzaifa}
-            />
-          </Card>
+          <ImageCard path={huzaifa} />
         </Grid>
       </Grid>
     </Box>
