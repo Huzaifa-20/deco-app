@@ -19,4 +19,4 @@ To run the project on your local machine, carry out the following steps:
 - Run the 'npm start' command.
 - 'Go to your browser and type 'http://localhost:3000/' on URL bar.
 
-###Hoorayy You Made It To The End
+##Hoorayy You Made It To The End
