@@ -19,7 +19,7 @@ const AboutSection = () => {
         backgroundColor: 'primary.main',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'center',
       }}
     >
@@ -31,10 +31,11 @@ const AboutSection = () => {
         container
         alignItems="center"
         rowSpacing={2}
-        columnSpacing={{ xs: 2, sm: 2, md: 1 }}
+        columnSpacing={{ xs: 2, sm: 2, md: 3 }}
         sx={{
           paddingLeft: '1rem',
           paddingRight: '1rem',
+          marginTop: '2rem',
         }}
       >
         <Grid
@@ -43,10 +44,9 @@ const AboutSection = () => {
           sm={6}
           md={4}
           order={1}
-          spacing={2}
           sx={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'end',
           }}
         >
           <ImageCard path={yumna} />
@@ -97,7 +97,7 @@ const AboutSection = () => {
           order={{ xs: 2, sm: 2, md: 3 }}
           sx={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'start',
           }}
         >
           <ImageCard path={huzaifa} />

@@ -14,6 +14,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ path }) => {
       sx={{
         maxWidth: '280px',
         borderRadius: '10px',
+        zIndex: 100,
         [breakpoints.up('md')]: {
           maxWidth: '345px',
         },

@@ -17,7 +17,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
         data-aos-delay="500"
         sx={(theme) => ({
           textAlign: 'center',
-          ...theme.typography.h4,
+          ...theme.typography.h5,
           color: 'text.primary',
           transition: 'all 0.2s',
           cursor: 'default',

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Stack, Avatar, Typography, useTheme,
+  Stack, Avatar, Typography, useTheme, Theme,
 } from '@mui/material';
 import designIcon from '../resources/logo.png';
 import codeIcon from '../resources/codeIcon.png';
@@ -10,6 +10,25 @@ import { services, ServiceType } from './helper';
 interface ServiceCardProps {
   service: string;
 }
+
+const cardHeadingStyle = (theme: Theme, breakpoints: any) => ({
+  ...theme.typography.body1,
+  fontFamily: 'Roboto',
+  [breakpoints.up('md')]: {
+    ...theme.typography.h6,
+    fontWeight: '500',
+  },
+});
+
+const cardTextStyle = (theme: Theme, breakpoints: any) => ({
+  ...theme.typography.body2,
+  fontFamily: 'Roboto',
+  fontSize: '0.75rem',
+  [breakpoints.up('md')]: {
+    ...theme.typography.body2,
+    textAlign: 'center',
+  },
+});
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
   const [data, setData] = useState<ServiceType | null>(null);
@@ -28,69 +47,70 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       data-aos="fade-up"
       data-aos-delay="500"
       sx={{
-        maxWidth: '300px',
+        maxWidth: '200px',
         backgroundColor: 'white',
-        paddingTop: '1rem',
-        padding: '1rem',
+        padding: '0.5rem',
         borderRadius: '10px',
+        borderColor: 'text.primary',
+        borderWidth: '1px',
         [breakpoints.up('md')]: {
           maxWidth: '345px',
+          padding: '1rem',
         },
       }}
       alignItems="center"
-      gap={1}
+      gap={{ md: 5, sm: 3, xs: 2 }}
     >
       <Avatar
         srcSet={service === 'Designer' ? designIcon : codeIcon}
         variant="square"
         sx={{
-          width: 65,
-          height: 60,
+          width: 40,
+          height: 35,
+          [breakpoints.up('md')]: {
+            width: 65,
+            height: 60,
+          },
         }}
       />
 
       <Stack alignItems="center">
-        <Typography variant="h6" fontWeight="500" fontFamily="Roboto">
+        <Typography
+          sx={(theme) => ({ ...cardHeadingStyle(theme, breakpoints) })}
+        >
           {service}
         </Typography>
-        <Typography
-          textAlign="center"
-          fontFamily="Roboto"
-          sx={(theme) => ({
-            ...theme.typography.body2,
-            [breakpoints.up('md')]: {
-              ...theme.typography.body2,
-            },
-          })}
-        >
+
+        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
           {data?.detail}
         </Typography>
       </Stack>
 
       <Stack alignItems="center">
         <Typography
-          variant="h6"
-          fontWeight="400"
-          color={logoPrimaryColor}
-          fontFamily="Roboto"
+          sx={(theme) => ({
+            ...cardHeadingStyle(theme, breakpoints),
+            color: logoPrimaryColor,
+          })}
         >
-          Things I enjoy designing:
+          {service === 'Designer' ? 'We Design' : 'We Code'}
         </Typography>
-        <Typography variant="body2" textAlign="center" fontFamily="Roboto">
+
+        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
           {data?.skillSet}
         </Typography>
       </Stack>
 
       <Stack alignItems="center">
         <Typography
-          variant="h6"
-          fontWeight="400"
-          color={logoPrimaryColor}
-          fontFamily="Roboto"
+          sx={(theme) => ({
+            ...cardHeadingStyle(theme, breakpoints),
+            color: logoPrimaryColor,
+          })}
         >
-          Design Tools
+          {service === 'Designer' ? 'Design Tools' : 'Dev Tools'}
         </Typography>
-        <Typography variant="body2" textAlign="center" fontFamily="Roboto">
+        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
           <ul>
             {data?.tools.map((tool) => (
               <li>{tool}</li>

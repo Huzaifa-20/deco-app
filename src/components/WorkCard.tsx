@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Stack, Avatar, Typography, useTheme,
+  Grid, Avatar, Typography, useTheme,
 } from '@mui/material';
 import designIcon from '../resources/logo.png';
 import { workFlow, WorkType } from './helper';
+import { logoPrimaryColor } from '../style/theme';
 
 interface WorkCardProps {
   step: number;
@@ -18,44 +19,77 @@ const WorkCard: React.FC<WorkCardProps> = ({ step }) => {
   }, []);
 
   return (
-    <Stack
+    <Grid
+      item
+      textAlign="center"
       data-aos="fade-up"
       data-aos-delay={100 * step}
       sx={{
-        maxWidth: '200px',
+        maxWidth: '130px',
         background: 'white',
-        padding: '1rem',
+        padding: '0.5rem',
         borderRadius: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        borderColor: 'text.primary',
+        borderWidth: '1px',
+        [breakpoints.up('md')]: {
+          maxWidth: '200px',
+          padding: '1rem',
+        },
+        transition: 'all 0.2s',
+        '&:hover': {
+          background: logoPrimaryColor,
+        },
       }}
       gap={1}
-      alignItems="center"
     >
       <Avatar
         srcSet={designIcon}
         variant="square"
         sx={{
-          width: 30,
-          height: 30,
+          width: 25,
+          height: 25,
+          [breakpoints.up('sm')]: {
+            width: 40,
+            height: 40,
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            display: 'flex',
+          },
         }}
       />
 
-      <Typography variant="h5" fontWeight="500" fontFamily="Roboto">
+      <Typography
+        sx={(theme) => ({
+          ...theme.typography.body1,
+          fontFamily: 'Roboto',
+          [breakpoints.up('md')]: {
+            ...theme.typography.h6,
+            fontWeight: '500',
+          },
+        })}
+      >
         {data?.heading}
       </Typography>
 
       <Typography
-        textAlign="center"
-        fontFamily="Roboto"
         sx={(theme) => ({
           ...theme.typography.body2,
+          fontFamily: 'Roboto',
+          fontSize: '0.75rem',
+          textAlign: 'left',
           [breakpoints.up('md')]: {
-            ...theme.typography.body1,
+            ...theme.typography.body2,
+            textAlign: 'center',
           },
         })}
       >
         {data?.detail}
       </Typography>
-    </Stack>
+    </Grid>
   );
 };
 export default WorkCard;

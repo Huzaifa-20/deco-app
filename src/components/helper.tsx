@@ -69,16 +69,15 @@ export interface ServiceType {
 
 export const services: ServiceType[] = [
   {
-    detail:
-      'I value simple content structure, clean design patterns, and thoughtful interactions.',
-    skillSet: 'UX, UI, Web, Mobile, Apps, Logos',
-    tools: ['Figma', 'Adobe Photoshop', 'Pen & Paper', 'Webflow'],
+    detail: 'We value clean design patterns, and thoughtful interactions.',
+    skillSet: 'UX/UI, Web/Mobile Apps',
+    tools: ['Figma', 'Adobe Photoshop', 'Pen & Paper'],
   },
   {
     detail:
-      'I like to code things from scratch, and enjoy bringing ideas to life in the browser.',
-    skillSet: 'HTML, Pug, Slim, CSS, Sass, Less',
-    tools: ['Atom', 'Bitbucket', 'Bootstrap', 'Bulma'],
+      'We like to code things from scratch, and enjoy bringing ideas to life.',
+    skillSet: 'React, HTML, JS, CSS, AWS',
+    tools: ['VSCode', 'Github', 'MUI'],
   },
 ];
 
@@ -88,25 +87,20 @@ export interface WorkType {
 }
 
 export const workFlow: WorkType[] = [
-  // {
-  //   heading: 'Discover',
-  //   detail: 'I conduct user research to identify the problem I want to solve.',
-  // },
   {
     heading: 'Define',
-    detail: 'I brainstorm possible design solutions to the identified problem.',
+    detail: 'We brainstorm possible design solutions to the identified problem',
   },
   {
     heading: 'Ideate',
-    detail:
-      'I create wireframes and sketches of the product I’m about to design.',
+    detail: 'We create wireframes of the product to be designed',
   },
   {
     heading: 'Prototype',
-    detail: 'I create high fidelity design and prototype the screens.',
+    detail: 'We create high fidelity prototype for the product',
   },
   {
     heading: 'Implement',
-    detail: 'After designing, I deliver for implementation.',
+    detail: 'After designing, we code it to life',
   },
 ];
