@@ -50,6 +50,7 @@ const IntroSection = () => {
         justifyContent: 'center',
         backgroundColor: 'secondary.main',
       }}
+      id="Intro"
     >
       {/* Stack to hold intro section details */}
       <Stack sx={{ alignItems: 'center', zIndex: 1 }}>

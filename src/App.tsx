@@ -4,6 +4,8 @@ import particleOptions from './particleOptions';
 import AboutSection from './sections/AboutSection';
 import IntroSection from './sections/IntroSection';
 import ServicesSection from './sections/ServicesSection';
+import PortfolioSection from './sections/PortfolioSection';
+import ContactSection from './sections/ContactSection';
 
 const App = () => (
   <>
@@ -11,6 +13,8 @@ const App = () => (
     <IntroSection />
     <AboutSection />
     <ServicesSection />
+    <PortfolioSection />
+    <ContactSection />
     <Particles id="tsparticles" options={particleOptions} />
   </>
 );

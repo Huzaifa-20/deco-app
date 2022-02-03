@@ -16,20 +16,23 @@ const ServicesSection = () => {
         borderWidth: '1rem',
         borderColor: 'text.secondary',
         backgroundColor: 'primary.main',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
       }}
+      id="Services"
     >
       <SectionHeading heading="Services" />
 
       <Stack
         direction="row"
         sx={{
-          margin: '1rem',
+          marginTop: '1rem',
           [breakpoints.up('md')]: {
-            margin: '2rem',
+            marginTop: '2rem',
           },
         }}
         spacing={{ md: 15, sm: 10, xs: 2 }}
@@ -43,10 +46,7 @@ const ServicesSection = () => {
         justifyContent="center"
         gap={{ xs: 2, sm: 3, md: 5 }}
         sx={{
-          marginTop: '0.5rem',
-          [breakpoints.up('md')]: {
-            marginTop: '1rem',
-          },
+          marginTop: '1rem',
         }}
       >
         {workFlow.map((obj, index) => (

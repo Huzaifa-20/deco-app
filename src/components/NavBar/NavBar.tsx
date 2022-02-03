@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   Box, Stack, Avatar, Typography, useTheme,
 } from '@mui/material';
+import { Link, animateScroll as scroll } from 'react-scroll';
 import { useSpring, animated } from 'react-spring';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../../resources/logo.png';
@@ -13,12 +14,6 @@ const NavBar = () => {
   const { breakpoints } = useTheme();
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
-  const navDropStyle = useSpring({
-    from: { y: -100 },
-    to: { y: 0 },
-    delay: 3500,
-  });
-
   const logoRotateStyle = useSpring({
     loop: true,
     from: { rotateZ: 0 },
@@ -27,89 +22,80 @@ const NavBar = () => {
     delay: 5500,
   });
 
-  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-    if (
-      event
-        && event.type === 'keydown'
-        && ((event as React.KeyboardEvent).key === 'Tab'
-          || (event as React.KeyboardEvent).key === 'Shift')
-    ) {
-      return;
-    }
-    setIsDrawerOpen(open);
-  };
-
   return (
-    <animated.div style={navDropStyle}>
-      {/* Nav bar container */}
-      <Box
+    // Nav bar container //
+    <Box
+      data-aos="fade-down"
+      data-aos-delay="2500"
+      sx={{
+        width: '100%',
+        height: '60px',
+        backgroundColor: 'rgba(0,0,0,0)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingLeft: '2rem',
+        paddingRight: '2rem',
+        position: 'fixed',
+        top: '0',
+        zIndex: 2,
+        [breakpoints.down('sm')]: {
+          height: '40px',
+          alignItems: 'flex-end',
+        },
+      }}
+    >
+      {/* Logo */}
+      <Stack
+        direction="row"
+        gap={1}
         sx={{
-          width: '100%',
-          height: '60px',
-          backgroundColor: 'rgba(0,0,0,0)',
-          display: 'flex',
-          justifyContent: 'space-between',
           alignItems: 'center',
-          paddingLeft: '2rem',
-          paddingRight: '2rem',
-          position: 'fixed',
-          top: '0',
-          zIndex: '100',
-          [breakpoints.down('sm')]: {
-            height: '40px',
-            alignItems: 'flex-end',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+          '&:hover': {
+            transform: 'scale(1.1)',
           },
         }}
+        onClick={() => scroll.scrollToTop()}
       >
-        {/* Logo */}
-        <Stack
-          direction="row"
-          gap={1}
-          sx={{
-            alignItems: 'center',
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-            '&:hover': {
-              transform: 'scale(1.1)',
-            },
-          }}
-        >
-          <animated.div style={logoRotateStyle}>
-            <Avatar
-              srcSet={logo}
-              variant="square"
-              sx={{
-                width: 30,
-                height: 30,
-                [breakpoints.up('md')]: {
-                  width: 40,
-                  height: 40,
-                },
-              }}
-            />
-          </animated.div>
-          <Typography
-            sx={(theme) => ({
-              textAlign: 'center',
-              ...theme.typography.h5,
-              fontWeight: '500',
+        <animated.div style={logoRotateStyle}>
+          <Avatar
+            srcSet={logo}
+            variant="square"
+            sx={{
+              width: 30,
+              height: 30,
               [breakpoints.up('md')]: {
-                ...theme.typography.h4,
+                width: 40,
+                height: 40,
               },
-            })}
-          >
-            <span style={{ color: logoPrimaryColor }}>De</span>
-            <span style={{ color: logoSecondaryColor }}>Co</span>
-          </Typography>
-        </Stack>
-
-        {/* Nav headings */}
-        <Stack
-          direction="row"
-          gap={{ md: 3, sm: 1 }}
-          sx={{ color: 'text.secondary', alignItems: 'center' }}
+            }}
+          />
+        </animated.div>
+        <Typography
+          sx={(theme) => ({
+            textAlign: 'center',
+            ...theme.typography.h5,
+            fontWeight: '500',
+            [breakpoints.up('md')]: {
+              ...theme.typography.h4,
+            },
+          })}
         >
-          {navBarHeadings.map((heading) => (
+          <span style={{ color: logoPrimaryColor }}>De</span>
+          <span style={{ color: logoSecondaryColor }}>Co</span>
+        </Typography>
+      </Stack>
+
+      {/* Nav headings */}
+      <Stack
+        direction="row"
+        gap={{ md: 3, sm: 1 }}
+        sx={{ color: 'text.secondary', alignItems: 'center' }}
+      >
+        {navBarHeadings.map((heading) => (
+          <Link to={heading} smooth duration={1000}>
             <Typography
               sx={(theme) => ({
                 [breakpoints.down(750)]: {
@@ -132,37 +118,35 @@ const NavBar = () => {
             >
               {heading}
             </Typography>
-          ))}
+          </Link>
+        ))}
 
-          {/* Responsive Hamburger icon */}
-          <MenuIcon
-            fontSize="large"
-            onClick={toggleDrawer(true)}
-            sx={{
-              cursor: 'pointer',
-              color: logoPrimaryColor,
-              transition: 'all 0.2s',
-              '&:hover': {
-                transform: 'scale(1.2)',
-                color: logoSecondaryColor,
-              },
-              [breakpoints.up(750)]: {
-                display: 'none',
-              },
-            }}
-          />
-        </Stack>
+        {/* Responsive Hamburger icon */}
+        <MenuIcon
+          fontSize="large"
+          onClick={() => setIsDrawerOpen(true)}
+          sx={{
+            cursor: 'pointer',
+            color: logoPrimaryColor,
+            transition: 'all 0.2s',
+            '&:hover': {
+              transform: 'scale(1.2)',
+              color: logoSecondaryColor,
+            },
+            [breakpoints.up(750)]: {
+              display: 'none',
+            },
+          }}
+        />
+      </Stack>
 
-        {/* Side drawer */}
-        {isDrawerOpen && (
-          <CustomDrawer
-            open={isDrawerOpen}
-            navBarHeadings={navBarHeadings}
-            toggleDrawer={toggleDrawer}
-          />
-        )}
-      </Box>
-    </animated.div>
+      {/* Side drawer */}
+      <CustomDrawer
+        open={isDrawerOpen}
+        navBarHeadings={navBarHeadings}
+        setIsDrawerOpen={setIsDrawerOpen}
+      />
+    </Box>
   );
 };
 

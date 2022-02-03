@@ -11,7 +11,7 @@ interface ServiceCardProps {
   service: string;
 }
 
-const cardHeadingStyle = (theme: Theme, breakpoints: any) => ({
+const cardHeadingStyle = (theme: Theme, breakpoints: Theme['breakpoints']) => ({
   ...theme.typography.body1,
   fontFamily: 'Roboto',
   [breakpoints.up('md')]: {
@@ -20,13 +20,12 @@ const cardHeadingStyle = (theme: Theme, breakpoints: any) => ({
   },
 });
 
-const cardTextStyle = (theme: Theme, breakpoints: any) => ({
+const cardTextStyle = (theme: Theme, breakpoints: Theme['breakpoints']) => ({
   ...theme.typography.body2,
   fontFamily: 'Roboto',
   fontSize: '0.75rem',
   [breakpoints.up('md')]: {
     ...theme.typography.body2,
-    textAlign: 'center',
   },
 });
 
@@ -40,16 +39,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     } else {
       setData(services[1]);
     }
-  }, []);
+  }, [service]);
 
   return (
     <Stack
       data-aos="fade-up"
-      data-aos-delay="500"
+      data-aos-delay="600"
       sx={{
         maxWidth: '200px',
         backgroundColor: 'white',
-        padding: '0.5rem',
         borderRadius: '10px',
         borderColor: 'text.primary',
         borderWidth: '1px',
@@ -59,29 +57,44 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         },
       }}
       alignItems="center"
-      gap={{ md: 5, sm: 3, xs: 2 }}
+      gap={{ md: 5, sm: 3, xs: 1 }}
     >
-      <Avatar
-        srcSet={service === 'Designer' ? designIcon : codeIcon}
-        variant="square"
-        sx={{
-          width: 40,
-          height: 35,
-          [breakpoints.up('md')]: {
-            width: 65,
-            height: 60,
-          },
-        }}
-      />
+      <Stack
+        direction={{ sm: 'row', md: 'column' }}
+        alignItems="center"
+        gap={1}
+      >
+        <Avatar
+          srcSet={service === 'Designer' ? designIcon : codeIcon}
+          variant="square"
+          sx={{
+            width: 25,
+            height: 23,
+            [breakpoints.up('sm')]: {
+              width: 50,
+              height: 45,
+            },
+            [breakpoints.up('md')]: {
+              width: 65,
+              height: 60,
+            },
+          }}
+        />
 
-      <Stack alignItems="center">
         <Typography
           sx={(theme) => ({ ...cardHeadingStyle(theme, breakpoints) })}
         >
           {service}
         </Typography>
+      </Stack>
 
-        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
+      <Stack alignItems="center">
+        <Typography
+          sx={(theme) => ({
+            ...cardTextStyle(theme, breakpoints),
+            textAlign: 'center',
+          })}
+        >
           {data?.detail}
         </Typography>
       </Stack>
@@ -96,7 +109,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           {service === 'Designer' ? 'We Design' : 'We Code'}
         </Typography>
 
-        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
+        <Typography
+          sx={(theme) => ({
+            ...cardTextStyle(theme, breakpoints),
+            textAlign: 'center',
+          })}
+        >
           {data?.skillSet}
         </Typography>
       </Stack>
@@ -110,7 +128,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         >
           {service === 'Designer' ? 'Design Tools' : 'Dev Tools'}
         </Typography>
-        <Typography sx={(theme) => ({ ...cardTextStyle(theme, breakpoints) })}>
+        <Typography
+          sx={(theme) => ({
+            ...cardTextStyle(theme, breakpoints),
+            textAlign: 'center',
+          })}
+        >
           <ul>
             {data?.tools.map((tool) => (
               <li>{tool}</li>

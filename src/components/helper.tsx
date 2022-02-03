@@ -1,3 +1,8 @@
+import firstProject from '../resources/proj_1.jpg';
+import secondProject from '../resources/proj_2.jpg';
+import thirdProject from '../resources/proj_3.jpg';
+import fourthProject from '../resources/proj_4.jpg';
+
 interface TypographyType {
   fontFamily: string;
   fontWeight: number;
@@ -53,13 +58,7 @@ export const decreaseTypography = (type: string, typography: any) => {
   return result;
 };
 
-export const navBarHeadings = [
-  'About',
-  'Services',
-  'Portfolio',
-  'Testimonials',
-  'Contact',
-];
+export const navBarHeadings = ['About', 'Services', 'Portfolio', 'Contact'];
 
 export interface ServiceType {
   detail: string;
@@ -102,5 +101,44 @@ export const workFlow: WorkType[] = [
   {
     heading: 'Implement',
     detail: 'After designing, we code it to life',
+  },
+];
+
+export interface ProjectDetails {
+  image: string;
+  name: string;
+  detail: string;
+}
+
+export const projects: ProjectDetails[] = [
+  {
+    image: firstProject,
+    name: 'Project 1',
+    detail: 'We brainstorm possible design solutions to the identified problem',
+  },
+  {
+    image: secondProject,
+    name: 'Project 2',
+    detail: 'We brainstorm possible design solutions to the identified problem',
+  },
+  {
+    image: thirdProject,
+    name: 'Project 3',
+    detail: 'We brainstorm possible design solutions to the identified problem',
+  },
+  {
+    image: fourthProject,
+    name: 'Project 4',
+    detail: 'We brainstorm possible design solutions to the identified problem',
+  },
+  {
+    image: fourthProject,
+    name: 'Project 5',
+    detail: 'We brainstorm possible design solutions to the identified problem',
+  },
+  {
+    image: fourthProject,
+    name: 'Project 6',
+    detail: 'We brainstorm possible design solutions to the identified problem',
   },
 ];

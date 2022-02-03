@@ -11,7 +11,14 @@ interface SectionHeadingProps {
 const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
   const { breakpoints } = useTheme();
   return (
-    <Stack sx={{ marginTop: '1rem' }}>
+    <Stack
+      sx={{
+        marginTop: '0.5rem',
+        [breakpoints.up('sm')]: {
+          marginTop: '1rem',
+        },
+      }}
+    >
       <Typography
         data-aos="fade-left"
         data-aos-delay="500"

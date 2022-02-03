@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Grid, Avatar, Typography, useTheme,
+  Grid, Stack, Avatar, Typography, useTheme,
 } from '@mui/material';
 import designIcon from '../resources/logo.png';
 import { workFlow, WorkType } from './helper';
@@ -16,14 +16,14 @@ const WorkCard: React.FC<WorkCardProps> = ({ step }) => {
 
   useEffect(() => {
     setData(workFlow[step]);
-  }, []);
+  }, [step]);
 
   return (
     <Grid
       item
       textAlign="center"
       data-aos="fade-up"
-      data-aos-delay={100 * step}
+      data-aos-delay={100 * step + 600}
       sx={{
         maxWidth: '130px',
         background: 'white',
@@ -45,35 +45,41 @@ const WorkCard: React.FC<WorkCardProps> = ({ step }) => {
       }}
       gap={1}
     >
-      <Avatar
-        srcSet={designIcon}
-        variant="square"
-        sx={{
-          width: 25,
-          height: 25,
-          [breakpoints.up('sm')]: {
-            width: 40,
-            height: 40,
-            textAlign: 'center',
-            justifyContent: 'center',
-            alignItems: 'center',
-            display: 'flex',
-          },
-        }}
-      />
-
-      <Typography
-        sx={(theme) => ({
-          ...theme.typography.body1,
-          fontFamily: 'Roboto',
-          [breakpoints.up('md')]: {
-            ...theme.typography.h6,
-            fontWeight: '500',
-          },
-        })}
+      <Stack
+        direction={{ sm: 'row', md: 'column' }}
+        alignItems="center"
+        gap={1}
       >
-        {data?.heading}
-      </Typography>
+        <Avatar
+          srcSet={designIcon}
+          variant="square"
+          sx={{
+            width: 25,
+            height: 25,
+            [breakpoints.up('sm')]: {
+              width: 40,
+              height: 40,
+              textAlign: 'center',
+              justifyContent: 'center',
+              alignItems: 'center',
+              display: 'flex',
+            },
+          }}
+        />
+
+        <Typography
+          sx={(theme) => ({
+            ...theme.typography.body1,
+            fontFamily: 'Roboto',
+            [breakpoints.up('md')]: {
+              ...theme.typography.h6,
+              fontWeight: '500',
+            },
+          })}
+        >
+          {data?.heading}
+        </Typography>
+      </Stack>
 
       <Typography
         sx={(theme) => ({

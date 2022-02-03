@@ -22,6 +22,7 @@ const AboutSection = () => {
         justifyContent: 'center',
         alignItems: 'center',
       }}
+      id="About"
     >
       {/* About heading */}
       <SectionHeading heading="About" />
@@ -65,7 +66,7 @@ const AboutSection = () => {
         >
           <Typography
             data-aos="zoom-out"
-            data-aos-delay="800"
+            data-aos-delay="500"
             sx={(theme) => ({
               textAlign: 'justify',
               ...theme.typography.body2,
