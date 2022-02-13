@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
 import WorkCard from '../components/WorkCard';
 import { workFlow } from '../components/helper';
+import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
 
 const ServicesSection = () => {
   const { breakpoints } = useTheme();
@@ -12,16 +13,8 @@ const ServicesSection = () => {
   return (
     <Box
       sx={{
-        height: '100vh',
-        borderWidth: '1rem',
-        borderColor: 'text.secondary',
-        backgroundColor: 'primary.main',
-        paddingLeft: '1rem',
-        paddingRight: '1rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        ...flexCenterStyle,
+        ...sectionContainerStyle,
       }}
       id="Services"
     >
@@ -30,9 +23,9 @@ const ServicesSection = () => {
       <Stack
         direction="row"
         sx={{
-          marginTop: '1rem',
+          // marginBottom: '1rem',
           [breakpoints.up('md')]: {
-            marginTop: '2rem',
+            // marginBottom: '2rem',
           },
         }}
         spacing={{ md: 15, sm: 10, xs: 2 }}
@@ -41,14 +34,9 @@ const ServicesSection = () => {
         <ServiceCard service="Coder" />
       </Stack>
 
-      <Grid
-        container
-        justifyContent="center"
-        gap={{ xs: 2, sm: 3, md: 5 }}
-        sx={{
-          marginTop: '1rem',
-        }}
-      >
+      {/* <SectionHeading heading="Workflow" /> */}
+
+      <Grid container justifyContent="center" gap={{ xs: 2, sm: 3, md: 5 }}>
         {workFlow.map((obj, index) => (
           <WorkCard step={index} />
         ))}

@@ -50,14 +50,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
         backgroundColor: 'white',
         borderRadius: '10px',
         borderColor: 'text.primary',
-        borderWidth: '1px',
         [breakpoints.up('md')]: {
           maxWidth: '345px',
           padding: '1rem',
         },
       }}
+      gap={1}
       alignItems="center"
-      gap={{ md: 5, sm: 3, xs: 1 }}
     >
       <Stack
         direction={{ sm: 'row', md: 'column' }}

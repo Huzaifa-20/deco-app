@@ -7,20 +7,15 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import SectionHeading from '../components/SectionHeading';
 import { logoPrimaryColor } from '../style/theme';
+import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
 
 const ContactSection: React.FC = () => {
   const { breakpoints } = useTheme();
   return (
     <Stack
       sx={{
-        height: '100vh',
-        borderWidth: '1rem',
-        borderColor: 'text.secondary',
-        backgroundColor: 'primary.main',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        ...flexCenterStyle,
+        ...sectionContainerStyle,
       }}
       id="Contact"
     >
@@ -31,7 +26,6 @@ const ContactSection: React.FC = () => {
         data-aos-delay="600"
         sx={(theme) => ({
           textAlign: 'center',
-          marginTop: '1rem',
           ...theme.typography.body2,
           fontFamily: 'Roboto',
           color: 'text.primary',

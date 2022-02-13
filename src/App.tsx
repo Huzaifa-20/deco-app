@@ -6,16 +6,17 @@ import IntroSection from './sections/IntroSection';
 import ServicesSection from './sections/ServicesSection';
 import PortfolioSection from './sections/PortfolioSection';
 import ContactSection from './sections/ContactSection';
+import './App.css';
 
 const App = () => (
   <>
     <NavBar />
     <IntroSection />
+    <Particles id="tsparticles" options={particleOptions} />
     <AboutSection />
     <ServicesSection />
     <PortfolioSection />
     <ContactSection />
-    <Particles id="tsparticles" options={particleOptions} />
   </>
 );
 

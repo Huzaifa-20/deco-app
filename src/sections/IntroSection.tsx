@@ -12,6 +12,7 @@ import yumna from '../resources/yumnaMemoji.png';
 import huzaifa from '../resources/huzaifaMemoji.png';
 import { logoPrimaryColor, logoSecondaryColor } from '../style/theme';
 import Memoji from '../components/Memoji';
+import { flexCenterStyle } from './sectionStyles';
 
 const IntroSection = () => {
   const { breakpoints } = useTheme();
@@ -20,6 +21,7 @@ const IntroSection = () => {
   const titleFadeStyle = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
+    config: { duration: 1000 },
     ref: titleFadeRef,
   });
 
@@ -38,16 +40,14 @@ const IntroSection = () => {
     ref: remainingFadeRef,
   });
 
-  useChain([titleFadeRef, titleScaleRef, remainingFadeRef], [2, 2.5, 3]);
+  useChain([titleFadeRef, titleScaleRef, remainingFadeRef], [2, 3.5, 4.5]);
 
   return (
     // Intro section container //
     <Box
       sx={{
         height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        ...flexCenterStyle,
         backgroundColor: 'secondary.main',
       }}
       id="Intro"

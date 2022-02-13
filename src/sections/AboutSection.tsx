@@ -5,6 +5,7 @@ import yumna from '../resources/yumna.jpg';
 import huzaifa from '../resources/huzaifa.jpg';
 import SectionHeading from '../components/SectionHeading';
 import ImageCard from '../components/ImageCard';
+import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
 
 const AboutSection = () => {
   const { breakpoints } = useTheme();
@@ -13,14 +14,8 @@ const AboutSection = () => {
     // About section container //
     <Box
       sx={{
-        height: '100vh',
-        borderWidth: '1rem',
-        borderColor: 'text.secondary',
-        backgroundColor: 'primary.main',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        ...flexCenterStyle,
+        ...sectionContainerStyle,
       }}
       id="About"
     >
@@ -34,9 +29,7 @@ const AboutSection = () => {
         rowSpacing={2}
         columnSpacing={{ xs: 2, sm: 2, md: 3 }}
         sx={{
-          paddingLeft: '1rem',
-          paddingRight: '1rem',
-          marginTop: '2rem',
+          paddingX: '1rem',
         }}
       >
         <Grid

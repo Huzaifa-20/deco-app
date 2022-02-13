@@ -3,20 +3,15 @@ import { Grid, Box, useTheme } from '@mui/material';
 import SectionHeading from '../components/SectionHeading';
 import { projects } from '../components/helper';
 import ProjectCard from '../components/ProjectCard';
+import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
 
 const PortfolioSection: React.FC = () => {
   const { breakpoints } = useTheme();
   return (
     <Box
       sx={{
-        height: '100vh',
-        borderWidth: '1rem',
-        borderColor: 'text.secondary',
-        backgroundColor: 'primary.main',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        alignItems: 'center',
+        ...flexCenterStyle,
+        ...sectionContainerStyle,
       }}
       id="Portfolio"
     >
@@ -26,10 +21,8 @@ const PortfolioSection: React.FC = () => {
         container
         spacing={{ xs: 2 }}
         sx={{
-          marginTop: '2rem',
           [breakpoints.up('md')]: {
-            paddingLeft: '2rem',
-            paddingRight: '2rem',
+            paddingX: '2rem',
           },
         }}
       >

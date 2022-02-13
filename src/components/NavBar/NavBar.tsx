@@ -26,7 +26,7 @@ const NavBar = () => {
     // Nav bar container //
     <Box
       data-aos="fade-down"
-      data-aos-delay="2500"
+      data-aos-delay="2000"
       sx={{
         width: '100%',
         height: '60px',
@@ -34,8 +34,7 @@ const NavBar = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingLeft: '2rem',
-        paddingRight: '2rem',
+        paddingX: '2rem',
         position: 'fixed',
         top: '0',
         zIndex: 2,
