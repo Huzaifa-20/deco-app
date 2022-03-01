@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
+import { logoPrimaryColor } from '../style/theme';
 import WorkCard from '../components/WorkCard';
 import { workFlow } from '../components/helper';
 import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
@@ -21,20 +22,20 @@ const ServicesSection = () => {
       <SectionHeading heading="Services" />
 
       <Stack
-        direction="row"
+        direction={{ xs: 'column', md: 'row' }}
         sx={{
-          // marginBottom: '1rem',
+          marginBottom: '2rem',
           [breakpoints.up('md')]: {
-            // marginBottom: '2rem',
+            background: logoPrimaryColor,
           },
         }}
-        spacing={{ md: 15, sm: 10, xs: 2 }}
+        spacing={{ xs: 2, md: 0.25 }}
       >
         <ServiceCard service="Designer" />
         <ServiceCard service="Coder" />
       </Stack>
 
-      {/* <SectionHeading heading="Workflow" /> */}
+      <SectionHeading heading="Workflow" />
 
       <Grid container justifyContent="center" gap={{ xs: 2, sm: 3, md: 5 }}>
         {workFlow.map((obj, index) => (

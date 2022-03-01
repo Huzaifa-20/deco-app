@@ -19,10 +19,10 @@ const PortfolioSection: React.FC = () => {
 
       <Grid
         container
-        spacing={{ xs: 2 }}
+        rowSpacing={3}
         sx={{
           [breakpoints.up('md')]: {
-            paddingX: '2rem',
+            paddingX: '1rem',
           },
         }}
       >
@@ -31,7 +31,8 @@ const PortfolioSection: React.FC = () => {
             item
             data-aos="fade-up"
             data-aos-delay={100 * index}
-            xs={4}
+            sm={6}
+            md={4}
             sx={{
               display: 'flex',
               cursor: 'pointer',
@@ -40,7 +41,7 @@ const PortfolioSection: React.FC = () => {
               alignItems: ' center',
             }}
           >
-            <ProjectCard projectId={index} project={project} />
+            <ProjectCard project={project} />
           </Grid>
         ))}
       </Grid>

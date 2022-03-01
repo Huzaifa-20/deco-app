@@ -12,11 +12,11 @@ const App = () => (
   <>
     <NavBar />
     <IntroSection />
-    <Particles id="tsparticles" options={particleOptions} />
     <AboutSection />
     <ServicesSection />
     <PortfolioSection />
     <ContactSection />
+    <Particles id="tsparticles" options={particleOptions} />
   </>
 );
 

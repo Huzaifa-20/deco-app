@@ -12,20 +12,20 @@ interface ServiceCardProps {
 }
 
 const cardHeadingStyle = (theme: Theme, breakpoints: Theme['breakpoints']) => ({
-  ...theme.typography.body1,
+  ...theme.typography.h4,
+  fontSize: '2rem',
   fontFamily: 'Roboto',
-  [breakpoints.up('md')]: {
-    ...theme.typography.h6,
-    fontWeight: '500',
+  [breakpoints.down(470)]: {
+    fontSize: '1.875rem',
   },
 });
 
 const cardTextStyle = (theme: Theme, breakpoints: Theme['breakpoints']) => ({
-  ...theme.typography.body2,
+  ...theme.typography.h6,
   fontFamily: 'Roboto',
-  fontSize: '0.75rem',
-  [breakpoints.up('md')]: {
-    ...theme.typography.body2,
+  fontSize: '1.125rem',
+  [breakpoints.down(470)]: {
+    fontSize: '1rem',
   },
 });
 
@@ -46,16 +46,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
       data-aos="fade-up"
       data-aos-delay="600"
       sx={{
-        maxWidth: '200px',
+        maxWidth: '445px',
         backgroundColor: 'white',
-        borderRadius: '10px',
-        borderColor: 'text.primary',
+        padding: '1rem',
         [breakpoints.up('md')]: {
-          maxWidth: '345px',
-          padding: '1rem',
+          padding: '3rem',
         },
       }}
-      gap={1}
+      gap={{ xs: 5, md: 5 }}
       alignItems="center"
     >
       <Stack
@@ -67,12 +65,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           srcSet={service === 'Designer' ? designIcon : codeIcon}
           variant="square"
           sx={{
-            width: 25,
-            height: 23,
-            [breakpoints.up('sm')]: {
-              width: 50,
-              height: 45,
-            },
+            width: 50,
+            height: 45,
             [breakpoints.up('md')]: {
               width: 65,
               height: 60,

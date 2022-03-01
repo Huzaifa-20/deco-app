@@ -13,9 +13,9 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
   return (
     <Stack
       sx={{
-        marginTop: '0.5rem',
+        marginBottom: '1rem',
         [breakpoints.up('sm')]: {
-          marginTop: '1rem',
+          marginBottom: '2rem',
         },
       }}
     >
@@ -24,12 +24,12 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
         data-aos-delay="500"
         sx={(theme) => ({
           textAlign: 'center',
-          ...theme.typography.h5,
+          ...theme.typography.h3,
           color: 'text.primary',
           transition: 'all 0.2s',
           cursor: 'default',
-          [breakpoints.up('sm')]: {
-            ...theme.typography.h3,
+          [breakpoints.down(470)]: {
+            fontSize: '2.25rem',
           },
         })}
       >
