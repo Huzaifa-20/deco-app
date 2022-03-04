@@ -1,104 +1,43 @@
-import {
-  Box, Grid, Typography, useTheme,
-} from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import yumna from '../resources/yumna.jpg';
 import huzaifa from '../resources/huzaifa.jpg';
 import SectionHeading from '../components/SectionHeading';
-import ImageCard from '../components/ImageCard';
 import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
+import AboutCards from '../components/AboutCards';
 
-const AboutSection = () => {
-  const { breakpoints } = useTheme();
+const AboutSection = () => (
+  // About section container //
+  <Box
+    sx={{
+      ...flexCenterStyle,
+      ...sectionContainerStyle,
+    }}
+    id="About"
+  >
+    {/* About heading */}
+    <SectionHeading heading="About" />
 
-  return (
-    // About section container //
-    <Box
-      sx={{
-        ...flexCenterStyle,
-        ...sectionContainerStyle,
-      }}
-      id="About"
-    >
-      {/* About heading */}
-      <SectionHeading heading="About" />
+    <Stack gap={{ xs: 3, sm: 5 }}>
+      <AboutCards
+        memberIcon={yumna}
+        memberDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
+          perferendis rerum debitis fugiat a, culpa ut cupiditate ab nesciunt
+          dolores, modi id illum commodi quae tenetur quibusdam, error suscipit
+          nobis."
+        memberName="Yumna"
+      />
 
-      {/* Responsive grid to hold image cards and text */}
-      <Grid
-        container
-        alignItems="center"
-        rowSpacing={2}
-        columnSpacing={{ xs: 2, sm: 2, md: 3 }}
-        sx={{
-          paddingX: '1rem',
-        }}
-      >
-        <Grid
-          item
-          xs={6}
-          sm={6}
-          md={4}
-          order={1}
-          sx={{
-            display: 'flex',
-            justifyContent: 'end',
-          }}
-        >
-          <ImageCard path={yumna} />
-        </Grid>
-
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          md={4}
-          order={{ xs: 3, sm: 3, md: 2 }}
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <Typography
-            data-aos="zoom-out"
-            data-aos-delay="500"
-            sx={(theme) => ({
-              textAlign: 'justify',
-              ...theme.typography.body2,
-              fontFamily: 'Roboto',
-              color: 'text.primary',
-              transition: 'all 0.2s',
-              cursor: 'default',
-              [breakpoints.up('md')]: {
-                ...theme.typography.body1,
-                fontFamily: 'Roboto',
-              },
-            })}
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            vero necessitatibus natus eos sapiente? Cumque sint porro doloribus
-            odit possimus, ab maxime laudantium natus similique repellendus,
-            illum quaerat! Quibusdam, fuga! Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quis est molestias praesentium
-            architecto ullam! Non facilis impedit omnis officia, consectetur
-            necessitatibus, maiores exercitationem nostrum velit dolores soluta.
-            Eveniet, assumenda quibusdam?
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={6}
-          sm={6}
-          md={4}
-          order={{ xs: 2, sm: 2, md: 3 }}
-          sx={{
-            display: 'flex',
-            justifyContent: 'start',
-          }}
-        >
-          <ImageCard path={huzaifa} />
-        </Grid>
-      </Grid>
-    </Box>
-  );
-};
+      <AboutCards
+        memberIcon={huzaifa}
+        memberDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
+          perferendis rerum debitis fugiat a, culpa ut cupiditate ab nesciunt
+          dolores, modi id illum commodi quae tenetur quibusdam, error suscipit
+          nobis."
+        reverse
+        memberName="Huzaifa"
+      />
+    </Stack>
+  </Box>
+);
 
 export default AboutSection;

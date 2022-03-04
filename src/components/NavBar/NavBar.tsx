@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Box, Stack, Avatar, Typography, useTheme,
+  Box, Stack, Avatar, useTheme,
 } from '@mui/material';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { useSpring, animated } from 'react-spring';
@@ -9,6 +9,7 @@ import logo from '../../resources/logo.png';
 import { logoPrimaryColor, logoSecondaryColor } from '../../style/theme';
 import CustomDrawer from './CustomDrawer';
 import { navBarHeadings } from '../helper';
+import { StyledTitle, StyledText } from '../../style/GlobalStyles';
 
 const NavBar = () => {
   const { breakpoints } = useTheme();
@@ -30,7 +31,6 @@ const NavBar = () => {
       sx={{
         width: '100%',
         height: '60px',
-        backgroundColor: 'rgba(0,0,0,0)',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -38,10 +38,6 @@ const NavBar = () => {
         position: 'fixed',
         top: '0',
         zIndex: 2,
-        [breakpoints.down('sm')]: {
-          height: '40px',
-          alignItems: 'flex-end',
-        },
       }}
     >
       {/* Logo */}
@@ -63,75 +59,71 @@ const NavBar = () => {
             srcSet={logo}
             variant="square"
             sx={{
-              width: 30,
-              height: 30,
-              [breakpoints.up('md')]: {
-                width: 40,
-                height: 40,
+              width: 40,
+              height: 40,
+              [breakpoints.down('md')]: {
+                width: 35,
+                height: 35,
+              },
+              [breakpoints.down(750)]: {
+                width: 30,
+                height: 30,
               },
             }}
           />
         </animated.div>
-        <Typography
-          sx={(theme) => ({
-            textAlign: 'center',
-            ...theme.typography.h5,
-            fontWeight: '500',
-            [breakpoints.up('md')]: {
-              ...theme.typography.h4,
+        <StyledTitle
+          sx={{
+            cursor: 'pointer',
+            fontSize: '2.45rem',
+            [breakpoints.down('md')]: {
+              fontSize: '2.25rem',
             },
-          })}
+            [breakpoints.down(750)]: {
+              fontSize: '1.875rem',
+            },
+          }}
         >
           <span style={{ color: logoPrimaryColor }}>De</span>
           <span style={{ color: logoSecondaryColor }}>Co</span>
-        </Typography>
+        </StyledTitle>
       </Stack>
 
       {/* Nav headings */}
-      <Stack
-        direction="row"
-        gap={{ md: 3, sm: 1 }}
-        sx={{ color: 'text.secondary', alignItems: 'center' }}
-      >
+      <Stack direction="row" gap={3}>
         {navBarHeadings.map((heading) => (
           <Link to={heading} smooth duration={1000}>
-            <Typography
-              sx={(theme) => ({
+            <StyledText
+              sx={{
+                cursor: 'pointer',
+                color: logoPrimaryColor,
+                fontSize: '1.5rem',
+                [breakpoints.down('md')]: {
+                  fontSize: '1.25rem',
+                },
                 [breakpoints.down(750)]: {
                   display: 'none',
                 },
-                [breakpoints.up('md')]: {
-                  ...theme.typography.h5,
-                  fontFamily: 'Roboto',
-                },
-                ...theme.typography.h6,
-                fontFamily: 'Roboto',
-                cursor: 'pointer',
-                color: logoPrimaryColor,
+
                 transition: 'all 0.1s',
                 '&:hover': {
                   transform: 'scale(1.1)',
                   color: logoSecondaryColor,
                 },
-              })}
+              }}
             >
               {heading}
-            </Typography>
+            </StyledText>
           </Link>
         ))}
 
         {/* Responsive Hamburger icon */}
         <MenuIcon
-          fontSize="large"
+          fontSize="medium"
           onClick={() => setIsDrawerOpen(true)}
           sx={{
             cursor: 'pointer',
             color: logoPrimaryColor,
-            transition: 'all 0.2s',
-            '&:hover': {
-              transform: 'scale(1.2)',
-              color: logoSecondaryColor,
-            },
             [breakpoints.up(750)]: {
               display: 'none',
             },

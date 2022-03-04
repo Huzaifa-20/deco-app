@@ -1,6 +1,4 @@
-import {
-  Box, Typography, Stack, useTheme,
-} from '@mui/material';
+import { Box, Stack, useTheme } from '@mui/material';
 import {
   useSpring,
   useSpringRef,
@@ -13,6 +11,7 @@ import huzaifa from '../resources/huzaifaMemoji.png';
 import { logoPrimaryColor, logoSecondaryColor } from '../style/theme';
 import Memoji from '../components/Memoji';
 import { flexCenterStyle } from './sectionStyles';
+import { StyledTitle, StyledText } from '../style/GlobalStyles';
 
 const IntroSection = () => {
   const { breakpoints } = useTheme();
@@ -27,7 +26,7 @@ const IntroSection = () => {
 
   const titleScaleRef = useSpringRef();
   const titleScaleStyle = useTransition(true, {
-    from: { x: 0, y: 0, scale: 5 },
+    from: { x: 0, y: 0, scale: 2 },
     enter: { x: 0, y: 0, scale: 1 },
     ref: titleScaleRef,
   });
@@ -48,7 +47,7 @@ const IntroSection = () => {
       sx={{
         height: '100vh',
         ...flexCenterStyle,
-        backgroundColor: 'secondary.main',
+        backgroundColor: 'primary.main',
       }}
       id="Intro"
     >
@@ -57,24 +56,26 @@ const IntroSection = () => {
         <animated.div style={titleFadeStyle}>
           {titleScaleStyle((styles) => (
             <animated.div style={styles}>
-              <Typography
-                sx={(theme) => ({
-                  textAlign: 'center',
-                  ...theme.typography.h2,
-                  marginTop: '0.5rem',
+              {/* DeCo Title */}
+              <StyledTitle
+                sx={{
+                  fontSize: '6rem',
+                  [breakpoints.down('md')]: {
+                    fontSize: '5rem',
+                  },
+                  [breakpoints.down(750)]: {
+                    fontSize: '4rem',
+                  },
+
                   transition: 'all 0.2s',
-                  cursor: 'default',
                   '&:hover': {
-                    letterSpacing: '0.4rem',
+                    letterSpacing: '0.5rem',
                   },
-                  [breakpoints.up('sm')]: {
-                    ...theme.typography.h1,
-                  },
-                })}
+                }}
               >
                 <span style={{ color: logoPrimaryColor }}>De</span>
                 <span style={{ color: logoSecondaryColor }}>Co</span>
-              </Typography>
+              </StyledTitle>
             </animated.div>
           ))}
         </animated.div>
@@ -85,36 +86,38 @@ const IntroSection = () => {
             direction={{ xs: 'column', sm: 'row' }}
             sx={{ justifyContent: 'center', alignItems: 'center' }}
           >
-            <Typography
-              color="textSecondary"
-              sx={(theme) => ({
-                [breakpoints.up('md')]: {
-                  ...theme.typography.h5,
-                  fontFamily: 'Roboto',
+            <StyledText
+              sx={{
+                color: '#FFFFFF',
+                fontSize: '1.4rem',
+                [breakpoints.down('md')]: {
+                  fontSize: '1.25rem',
                 },
-                ...theme.typography.h6,
-                fontFamily: 'Roboto',
-              })}
+                [breakpoints.down(750)]: {
+                  fontSize: '1.1rem',
+                },
+              }}
             >
               &lt;
               <span style={{ color: logoPrimaryColor }}>De</span>
               signing your vision &amp;&nbsp;
-            </Typography>
+            </StyledText>
 
-            <Typography
-              color="textSecondary"
-              sx={(theme) => ({
-                [breakpoints.up('md')]: {
-                  ...theme.typography.h5,
-                  fontFamily: 'Roboto',
+            <StyledText
+              sx={{
+                color: '#FFFFFF',
+                fontSize: '1.4rem',
+                [breakpoints.down('md')]: {
+                  fontSize: '1.25rem',
                 },
-                ...theme.typography.h6,
-                fontFamily: 'Roboto',
-              })}
+                [breakpoints.down(750)]: {
+                  fontSize: '1.1rem',
+                },
+              }}
             >
               <span style={{ color: logoSecondaryColor }}>Co</span>
               ding it to life/&gt;
-            </Typography>
+            </StyledText>
           </Stack>
 
           {/* Stack to hold memojis */}
@@ -125,7 +128,7 @@ const IntroSection = () => {
               alignItems: 'center',
               justifyContent: 'center',
             }}
-            spacing={{ xs: 5, sm: 20 }}
+            spacing={{ xs: 3, sm: 10, md: 20 }}
           >
             <Memoji source={yumna} borderColor={logoPrimaryColor} />
             <Memoji source={huzaifa} borderColor={logoSecondaryColor} />

@@ -1,8 +1,7 @@
 import React from 'react';
-import {
-  Stack, Typography, Box, useTheme,
-} from '@mui/material';
+import { Stack, Box, useTheme } from '@mui/material';
 import { logoPrimaryColor } from '../style/theme';
+import { StyledTitle } from '../style/GlobalStyles';
 
 interface SectionHeadingProps {
   heading: string;
@@ -13,28 +12,28 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({ heading }) => {
   return (
     <Stack
       sx={{
-        marginBottom: '1rem',
-        [breakpoints.up('sm')]: {
-          marginBottom: '2rem',
+        zIndex: '1',
+        marginBottom: '2rem',
+        [breakpoints.down('sm')]: {
+          marginBottom: '1rem',
         },
       }}
     >
-      <Typography
+      <StyledTitle
         data-aos="fade-left"
         data-aos-delay="500"
-        sx={(theme) => ({
-          textAlign: 'center',
-          ...theme.typography.h3,
-          color: 'text.primary',
-          transition: 'all 0.2s',
-          cursor: 'default',
-          [breakpoints.down(470)]: {
+        sx={{
+          fontSize: '2.5rem',
+          [breakpoints.down('md')]: {
             fontSize: '2.25rem',
           },
-        })}
+          [breakpoints.down('sm')]: {
+            fontSize: '2rem',
+          },
+        }}
       >
         {heading}
-      </Typography>
+      </StyledTitle>
       <Box
         data-aos="fade-left"
         sx={{

@@ -5,7 +5,7 @@ import AboutSection from './sections/AboutSection';
 import IntroSection from './sections/IntroSection';
 import ServicesSection from './sections/ServicesSection';
 import PortfolioSection from './sections/PortfolioSection';
-import ContactSection from './sections/ContactSection';
+// import ContactSection from './sections/ContactSection';
 import './App.css';
 
 const App = () => (
@@ -15,7 +15,7 @@ const App = () => (
     <AboutSection />
     <ServicesSection />
     <PortfolioSection />
-    <ContactSection />
+    {/* <ContactSection /> */}
     <Particles id="tsparticles" options={particleOptions} />
   </>
 );

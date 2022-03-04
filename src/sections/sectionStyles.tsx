@@ -11,6 +11,6 @@ export const sectionContainerStyle = {
   padding: '1.5rem',
   borderWidth: '0rem 1rem 0rem 1rem ',
   borderColor: 'text.secondary',
-  backgroundColor: 'primary.main',
+  backgroundColor: 'secondary.main',
   flexDirection: 'column',
 };
