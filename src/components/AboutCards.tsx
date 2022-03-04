@@ -9,7 +9,7 @@ interface AboutCardProps {
   memberIcon: string;
   memberName: string;
   memberDesc: string;
-  reverse?: boolean;
+  reverse: boolean;
 }
 
 const AboutCards: React.FC<AboutCardProps> = ({

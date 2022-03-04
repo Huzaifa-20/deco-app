@@ -24,6 +24,7 @@ const AboutSection = () => (
           perferendis rerum debitis fugiat a, culpa ut cupiditate ab nesciunt
           dolores, modi id illum commodi quae tenetur quibusdam, error suscipit
           nobis."
+        reverse={false}
         memberName="Yumna"
       />
 
