@@ -42,8 +42,8 @@ const NavBar = () => {
     >
       {/* Logo */}
       <Stack
-        direction="row"
-        gap={1}
+        direction={{ xs: 'column', sm: 'row' }}
+        gap={{ xs: 0, sm: 1 }}
         sx={{
           alignItems: 'center',
           cursor: 'pointer',
@@ -81,6 +81,9 @@ const NavBar = () => {
             },
             [breakpoints.down(750)]: {
               fontSize: '1.875rem',
+            },
+            [breakpoints.down('sm')]: {
+              fontSize: '0.875rem',
             },
           }}
         >

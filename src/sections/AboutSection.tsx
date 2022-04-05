@@ -20,20 +20,14 @@ const AboutSection = () => (
     <Stack gap={{ xs: 3, sm: 5 }}>
       <AboutCards
         memberIcon={yumna}
-        memberDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
-          perferendis rerum debitis fugiat a, culpa ut cupiditate ab nesciunt
-          dolores, modi id illum commodi quae tenetur quibusdam, error suscipit
-          nobis."
+        memberDesc="Hey there! Being the lead UI/UX engineer here at DeCo, I will be sitting down with you, making sure that your idea is brought to life in the best, most aesthetically appealing form. So, have an idea? Lets talk! "
         reverse={false}
         memberName="Yumna"
       />
 
       <AboutCards
         memberIcon={huzaifa}
-        memberDesc="Lorem ipsum, dolor sit amet consectetur adipisicing elit. At
-          perferendis rerum debitis fugiat a, culpa ut cupiditate ab nesciunt
-          dolores, modi id illum commodi quae tenetur quibusdam, error suscipit
-          nobis."
+        memberDesc="DeCo developer at your service! Being an avid coder with a passion for providing seamless user experience, I always strive to create state-of-the-art, easy to use and aesthetically pleasing user interfaces. I believe my soft and technical skills coupled with my focused work ethic would serve you well!"
         reverse
         memberName="Huzaifa"
       />

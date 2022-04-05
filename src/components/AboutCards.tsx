@@ -29,6 +29,7 @@ const AboutCards: React.FC<AboutCardProps> = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   return (
     <Grid
       container
@@ -36,14 +37,14 @@ const AboutCards: React.FC<AboutCardProps> = ({
       direction={{ xs: 'column', sm: 'row' }}
       sx={{
         transform: `${
-          windowWidth > 900
+          windowWidth > 1080
             ? reverse
-              ? 'translateX(20px)'
-              : 'translateX(-20px)'
-            : windowWidth > 1080
+              ? 'translateX(100px)'
+              : 'translateX(-100px)'
+            : windowWidth > 900
               ? reverse
-                ? 'translateX(100px)'
-                : 'translateX(-100px)'
+                ? 'translateX(20px)'
+                : 'translateX(-20px)'
               : null
         }`,
         alignItems: 'center',

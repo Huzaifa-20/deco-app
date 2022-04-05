@@ -13,14 +13,8 @@ export const theme = createTheme({
       secondary: '#FFFFFF',
     },
   },
-  // typography: {
-  //   fontFamily: 'Montserrat',
-  //   fontWeightBold: '500',
-  //   h1: {
-  //     fontWeight: 500,
-  //   },
-  // },
 });
 
-export const logoPrimaryColor = '#A8BAFA';
+// export const logoPrimaryColor = '#A8BAFA';
+export const logoPrimaryColor = '#99AFFF';
 export const logoSecondaryColor = '#DE9433';

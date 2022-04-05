@@ -14,14 +14,14 @@ export interface ServiceType {
 export const services: ServiceType[] = [
   {
     detail: 'We value clean design patterns, and thoughtful interactions.',
-    skillSet: 'UX/UI, Web/Mobile Apps',
-    tools: ['Figma', 'Adobe Photoshop', 'Pen & Paper'],
+    skillSet: 'UX, UI, Web, Mobile, Apps',
+    tools: ['Figma', 'Adobe Photoshop', 'Adobe XD', 'Pen & Paper'],
   },
   {
     detail:
       'We like to code things from scratch, and enjoy bringing ideas to life.',
-    skillSet: 'React, HTML, JS, CSS, AWS',
-    tools: ['VSCode', 'Github', 'MUI'],
+    skillSet: 'React, HTML, JS, CSS, SAAS',
+    tools: ['VSCode', 'Github', 'MUI', 'Tailwind'],
   },
 ];
 

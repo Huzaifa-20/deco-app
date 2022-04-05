@@ -1,49 +1,28 @@
-import {
-  Box, Stack, Grid, useTheme,
-} from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import SectionHeading from '../components/SectionHeading';
 import ServiceCard from '../components/ServiceCard';
-import { logoPrimaryColor } from '../style/theme';
-import WorkCard from '../components/WorkCard';
-import { workFlow } from '../components/helper';
 import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
 
-const ServicesSection = () => {
-  const { breakpoints } = useTheme();
+const ServicesSection = () => (
+  <Box
+    sx={{
+      ...flexCenterStyle,
+      ...sectionContainerStyle,
+    }}
+    id="Services"
+  >
+    <SectionHeading heading="Services" />
 
-  return (
-    <Box
+    <Stack
+      direction={{ xs: 'column', sm: 'row' }}
       sx={{
-        ...flexCenterStyle,
-        ...sectionContainerStyle,
+        marginBottom: '2rem',
       }}
-      id="Services"
+      spacing={{ xs: 3, sm: 1, md: 2 }}
     >
-      <SectionHeading heading="Services" />
-
-      <Stack
-        direction={{ xs: 'column', md: 'row' }}
-        sx={{
-          marginBottom: '2rem',
-          [breakpoints.up('md')]: {
-            background: logoPrimaryColor,
-          },
-        }}
-        spacing={{ xs: 2, md: 0.25 }}
-      >
-        <ServiceCard service="Designer" />
-        <ServiceCard service="Coder" />
-      </Stack>
-
-      <SectionHeading heading="Workflow" />
-
-      <Grid container justifyContent="center" gap={{ xs: 2, sm: 3, md: 5 }}>
-        {workFlow.map((obj, index) => (
-          <WorkCard step={index} />
-        ))}
-      </Grid>
-    </Box>
-  );
-};
-
+      <ServiceCard service="Designer" />
+      <ServiceCard service="Coder" />
+    </Stack>
+  </Box>
+);
 export default ServicesSection;

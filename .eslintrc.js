@@ -30,5 +30,6 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
+    'react/require-default-props': 'off',
   },
 };

@@ -1,13 +1,16 @@
 import React from 'react';
 import {
-  Stack, Box, Typography, useTheme, TextField,
+  Stack, Box, Button, useTheme, TextField,
 } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import SectionHeading from '../components/SectionHeading';
-import { logoPrimaryColor } from '../style/theme';
+import { logoPrimaryColor, logoSecondaryColor } from '../style/theme';
 import { flexCenterStyle, sectionContainerStyle } from './sectionStyles';
+import { StyledText } from '../style/GlobalStyles';
+import IconText from '../components/IconText';
 
 const ContactSection: React.FC = () => {
   const { breakpoints } = useTheme();
@@ -20,203 +23,153 @@ const ContactSection: React.FC = () => {
       id="Contact"
     >
       <SectionHeading heading="Contact Us" />
-
-      <Typography
-        data-aos="zoom-out"
-        data-aos-delay="600"
-        sx={(theme) => ({
-          textAlign: 'center',
-          ...theme.typography.body2,
-          fontFamily: 'Roboto',
-          color: 'text.primary',
-          cursor: 'default',
-          [breakpoints.up('md')]: {
-            ...theme.typography.body1,
-            fontFamily: 'Roboto',
-          },
-        })}
-      >
-        Thanks for taking the time to reach out
-        <br />
-        How can we help you?
-      </Typography>
-
-      <Stack
-        direction={{ xs: 'column', lg: 'row' }}
-        gap={{ md: 2, lg: 12 }}
-        sx={{ marginTop: '2rem', paddingLeft: '2rem', paddingRight: '2rem' }}
-      >
-        <Stack
+      <Box>
+        <StyledText
+          data-aos="zoom-out"
+          data-aos-delay="600"
           sx={{
-            justifyContent: 'center',
-            alignItems: 'center',
+            textAlign: 'start',
+            [breakpoints.down(650)]: {
+              fontSize: '0.9rem',
+            },
+            [breakpoints.down('sm')]: {
+              fontSize: '0.8rem',
+            },
           }}
         >
-          <Stack gap={2}>
-            <Box
-              data-aos="fade-up"
-              data-aos-delay="700"
+          Thanks for taking the time to reach out. How can we help you?
+        </StyledText>
+
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          gap={{ xs: 1, sm: 2, md: 15 }}
+          sx={{
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'start',
+            [breakpoints.down('sm')]: {
+              marginTop: '1rem',
+              alignItems: 'center',
+            },
+          }}
+        >
+          <Box data-aos="fade-up" data-aos-delay="700">
+            <Stack
               sx={{
-                display: 'flex',
-                alignItems: 'center',
+                [breakpoints.down('sm')]: {
+                  width: '90%',
+                  marginTop: '-1rem',
+                },
+                [breakpoints.down(415)]: {
+                  width: '100%',
+                },
               }}
             >
-              <LocationOnIcon
+              <TextField
+                id="standard-basic"
+                label="Full Name"
+                variant="outlined"
+                size="small"
+                margin="normal"
+                color="primary"
                 sx={{
-                  width: '3rem',
-                  height: '3rem',
-                  backgroundColor: logoPrimaryColor,
-                  borderRadius: '50%',
-                  padding: '0.5rem',
-                  marginRight: '1rem',
+                  input: { color: 'text.primary' },
+                  label: { color: 'text.primary', opacity: 0.8 },
                 }}
               />
-              <Typography
-                sx={(theme) => ({
-                  textAlign: 'center',
-                  ...theme.typography.body2,
-                  fontFamily: 'Roboto',
-                  color: 'text.primary',
-                  cursor: 'default',
-                  [breakpoints.up('md')]: {
-                    ...theme.typography.body1,
-                    fontFamily: 'Roboto',
-                  },
-                })}
-              >
-                Islamabad, Pakistan
-              </Typography>
-            </Box>
-            <Box
-              data-aos="fade-up"
-              data-aos-delay="800"
-              sx={{ display: 'flex', alignItems: 'center' }}
-            >
-              <EmailIcon
-                sx={{
-                  width: '3rem',
-                  height: '3rem',
-                  backgroundColor: logoPrimaryColor,
-                  borderRadius: '50%',
-                  padding: '0.5rem',
-                  marginRight: '1rem',
-                }}
-              />
-              <Typography
-                sx={(theme) => ({
-                  textAlign: 'center',
-                  ...theme.typography.body2,
-                  fontFamily: 'Roboto',
-                  color: 'text.primary',
-                  cursor: 'default',
-                  [breakpoints.up('md')]: {
-                    ...theme.typography.body1,
-                    fontFamily: 'Roboto',
-                  },
-                })}
-              >
-                deco@gmail.com
-              </Typography>
-            </Box>
 
-            <Box
-              data-aos="fade-up"
-              data-aos-delay="900"
-              sx={{ display: 'flex', alignItems: 'center' }}
-            >
-              <PhoneIphoneIcon
+              <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                gap={{ xs: 0, sm: 1, md: 2 }}
+              >
+                <TextField
+                  id="standard-basic"
+                  label="Email"
+                  variant="outlined"
+                  size="small"
+                  margin="normal"
+                  color="primary"
+                  sx={{
+                    input: { color: 'text.primary' },
+                    label: { color: 'text.primary', opacity: 0.8 },
+                  }}
+                />
+                <TextField
+                  id="standard-basic"
+                  label="Phone Number"
+                  variant="outlined"
+                  size="small"
+                  margin="normal"
+                  color="primary"
+                  sx={{
+                    input: { color: 'text.primary' },
+                    label: { color: 'text.primary', opacity: 0.8 },
+                  }}
+                />
+              </Stack>
+
+              <TextField
+                id="standard-multiline-static"
+                variant="outlined"
+                multiline
+                rows={3}
+                placeholder="Enter your message"
+                color="primary"
+                margin="normal"
                 sx={{
-                  width: '3rem',
-                  height: '3rem',
-                  backgroundColor: logoPrimaryColor,
-                  borderRadius: '50%',
-                  padding: '0.5rem',
-                  marginRight: '1rem',
+                  input: { color: 'text.primary' },
                 }}
               />
-              <Typography
-                sx={(theme) => ({
-                  textAlign: 'center',
-                  ...theme.typography.body2,
-                  fontFamily: 'Roboto',
-                  color: 'text.primary',
-                  cursor: 'default',
-                  [breakpoints.up('md')]: {
-                    ...theme.typography.body1,
-                    fontFamily: 'Roboto',
+
+              <Box
+                sx={{
+                  width: '100%',
+                  [breakpoints.down('sm')]: {
+                    display: 'flex',
+                    justifyContent: 'center',
                   },
-                })}
+                }}
               >
-                +92 321 536 0015
-              </Typography>
-            </Box>
+                <Button
+                  variant="contained"
+                  endIcon={<SendIcon />}
+                  sx={{
+                    width: '6rem',
+                    color: '#000000',
+                    background: logoPrimaryColor,
+                    zIndex: 1,
+                    marginTop: '1.25rem',
+                    '&:hover': {
+                      background: logoSecondaryColor,
+                      color: '#ffffff',
+                    },
+                    [breakpoints.down('sm')]: {
+                      marginTop: '0.5rem',
+                    },
+                  }}
+                >
+                  Send
+                </Button>
+              </Box>
+            </Stack>
+          </Box>
+
+          <Stack
+            direction={{ xs: 'row', sm: 'column' }}
+            gap={2}
+            sx={{
+              marginTop: '1.5rem',
+              [breakpoints.down('sm')]: {
+                marginTop: '1rem',
+              },
+            }}
+          >
+            <IconText Icon={LocationOnIcon} text="Islamabad, Pakistan" />
+            <IconText Icon={EmailIcon} text="deco@gmail.com" />
+            <IconText Icon={PhoneIphoneIcon} text="+92 321 536 0015" />
           </Stack>
         </Stack>
-
-        <Stack data-aos="fade-up" data-aos-delay="700">
-          <TextField
-            id="standard-basic"
-            label="Full Name"
-            variant="outlined"
-            size="small"
-            margin="normal"
-            color="secondary"
-            sx={{
-              input: { color: 'text.primary' },
-              label: { color: 'text.primary', opacity: 0.5 },
-            }}
-          />
-
-          <Stack direction="row" gap={2}>
-            <TextField
-              id="standard-basic"
-              label="Email"
-              variant="outlined"
-              size="small"
-              margin="normal"
-              color="secondary"
-              sx={{
-                input: { color: 'text.primary' },
-                label: { color: 'text.primary', opacity: 0.5 },
-              }}
-            />
-            <TextField
-              id="standard-basic"
-              label="Phone Number"
-              variant="outlined"
-              size="small"
-              margin="normal"
-              color="secondary"
-              sx={{
-                input: { color: 'text.primary' },
-                label: { color: 'text.primary', opacity: 0.5 },
-              }}
-            />
-          </Stack>
-
-          <TextField
-            id="standard-multiline-static"
-            variant="outlined"
-            multiline
-            rows={4}
-            placeholder="Enter your message"
-            color="secondary"
-            margin="normal"
-            sx={{
-              input: { color: 'textPrimary' },
-            }}
-          />
-        </Stack>
-      </Stack>
-
-      <button
-        data-aos="fade-up"
-        data-aos-delay="900"
-        style={{ backgroundColor: logoPrimaryColor }}
-        className="mt-8 border border-black rounded-lg py-2 px-4 hover:scale-110 ease-in duration-100"
-      >
-        Submit
-      </button>
+      </Box>
     </Stack>
   );
 };

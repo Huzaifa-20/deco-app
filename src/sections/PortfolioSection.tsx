@@ -19,10 +19,12 @@ const PortfolioSection: React.FC = () => {
 
       <Grid
         container
-        rowSpacing={3}
+        gap={3}
         sx={{
-          [breakpoints.up('md')]: {
-            paddingX: '1rem',
+          width: '95%',
+          justifyContent: 'center',
+          [breakpoints.down('lg')]: {
+            width: '100%',
           },
         }}
       >
@@ -31,8 +33,8 @@ const PortfolioSection: React.FC = () => {
             item
             data-aos="fade-up"
             data-aos-delay={100 * index}
-            sm={6}
-            md={4}
+            sm={5}
+            md={3}
             sx={{
               display: 'flex',
               cursor: 'pointer',

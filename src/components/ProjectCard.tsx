@@ -1,12 +1,9 @@
 import React from 'react';
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  useTheme,
+  Card, CardMedia, CardContent, useTheme,
 } from '@mui/material';
 import { ProjectDetails } from './helper';
+import { StyledText } from '../style/GlobalStyles';
 
 interface ProjectCardProps {
   project: ProjectDetails;
@@ -17,13 +14,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   return (
     <Card
-      data-aos="fade-up"
       sx={{
-        maxWidth: '100%',
+        maxWidth: '80%',
         borderRadius: '10px',
         zIndex: '1',
-        [breakpoints.up('sm')]: {
-          maxWidth: '80%',
+        [breakpoints.down('lg')]: {
+          maxWidth: '100%',
+        },
+        [breakpoints.down('sm')]: {
+          maxWidth: '320px',
+        },
+        [breakpoints.down(410)]: {
+          maxWidth: '100%',
         },
         transition: 'ease-in all 0.1s',
         '&:hover': {
@@ -31,46 +33,33 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         },
       }}
     >
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={project.image}
-      />
+      <CardMedia component="img" image={project.image} />
       <CardContent>
-        <Typography
-          sx={(theme) => ({
-            ...theme.typography.body2,
-            fontFamily: 'Roboto',
-            [breakpoints.up('md')]: {
-              ...theme.typography.h6,
-              fontWeight: '500',
-              textAlign: 'center',
+        <StyledText
+          sx={{
+            textAlign: 'center',
+            fontSize: '1.25rem',
+            fontWeight: '500',
+            [breakpoints.down(650)]: {
+              fontSize: '1.125rem',
             },
-            [breakpoints.up('sm')]: {
-              ...theme.typography.body1,
-            },
-          })}
+          }}
         >
           {project.name}
-        </Typography>
-        <Typography
-          sx={(theme) => ({
-            ...theme.typography.body2,
-            fontFamily: 'Roboto',
-            fontSize: '0.685rem',
-            textAlign: 'left',
-            [breakpoints.up('md')]: {
-              ...theme.typography.body2,
-              textAlign: 'center',
+        </StyledText>
+        <StyledText
+          sx={{
+            textAlign: 'center',
+            [breakpoints.down(650)]: {
+              fontSize: '0.9rem',
             },
-            [breakpoints.up('sm')]: {
-              fontSize: '0.75rem',
+            [breakpoints.down('sm')]: {
+              fontSize: '0.8rem',
             },
-          })}
+          }}
         >
           {project.detail}
-        </Typography>
+        </StyledText>
       </CardContent>
     </Card>
   );
