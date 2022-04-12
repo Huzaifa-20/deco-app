@@ -1,7 +1,5 @@
 import React, { Suspense } from 'react';
-import Particles from 'react-tsparticles';
 import NavBar from './components/NavBar/NavBar';
-import particleOptions from './particleOptions';
 import IntroSection from './sections/IntroSection';
 import './App.css';
 
@@ -28,8 +26,6 @@ const App = () => (
     <Suspense fallback={<div>...Loading...</div>}>
       <ContactSection />
     </Suspense>
-
-    <Particles id="tsparticles" options={particleOptions} />
   </>
 );
 

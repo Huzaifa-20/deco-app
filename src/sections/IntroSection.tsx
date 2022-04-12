@@ -6,12 +6,14 @@ import {
   useChain,
   animated,
 } from 'react-spring';
+import Particles from 'react-tsparticles';
 import yumna from '../resources/yumnaMemoji.png';
 import huzaifa from '../resources/huzaifaMemoji.png';
 import { logoPrimaryColor, logoSecondaryColor } from '../style/theme';
 import Memoji from '../components/Memoji';
 import { flexCenterStyle } from './sectionStyles';
 import { StyledTitle, StyledText } from '../style/GlobalStyles';
+import particleOptions from '../particleOptions';
 
 const IntroSection = () => {
   const { breakpoints } = useTheme();
@@ -135,6 +137,19 @@ const IntroSection = () => {
           </Stack>
         </animated.div>
       </Stack>
+
+      {/* Background Particles */}
+      <Particles
+        id="tsparticles"
+        options={particleOptions}
+        style={{
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+        }}
+      />
     </Box>
   );
 };

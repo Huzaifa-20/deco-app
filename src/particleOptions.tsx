@@ -1,4 +1,5 @@
 const particleOptions: object = {
+  fullScreen: { enable: false, zIndex: 0 },
   particles: {
     color: {
       value: '#ffffff',
